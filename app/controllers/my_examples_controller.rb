@@ -11,4 +11,15 @@ class MyExamplesController < ApplicationController
       render json: { fortune: "Look under your seat..." }
     end
   end
+
+  def lotto
+    array = (1..60).to_a.shuffle
+    numbers = []
+    index = 0
+    while index < 6
+      numbers << array[index]
+      index += 1
+    end
+    render json: { lottery: numbers }
+  end
 end
