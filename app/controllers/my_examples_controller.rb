@@ -1,15 +1,9 @@
 class MyExamplesController < ApplicationController
   def random_fortune
     # array.sample will pull one at random
-    array = [0, 1, 2]
+    array = ["Uh oh...", "Keep on keeping on", "Look under your seat..."]
     fortune = array.sample
-    if fortune == 0
-      render json: { fortune: "Uh oh..." }
-    elsif fortune == 1
-      render json: { fortune: "Keep on keeping on" }
-    else
-      render json: { fortune: "Look under your seat..." }
-    end
+    render json: { fortune: fortune }
   end
 
   def lotto
