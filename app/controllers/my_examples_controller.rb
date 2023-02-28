@@ -1,8 +1,8 @@
 class MyExamplesController < ApplicationController
   def random_fortune
+    # array.sample will pull one at random
     array = [0, 1, 2]
-    array = array.shuffle
-    fortune = array[0]
+    fortune = array.sample
     if fortune == 0
       render json: { fortune: "Uh oh..." }
     elsif fortune == 1
@@ -21,5 +21,15 @@ class MyExamplesController < ApplicationController
       index += 1
     end
     render json: { lottery: numbers }
+  end
+
+  def pagecount
+    count = 0
+    count += 1
+    render json: { views: count }
+  end
+
+  def beer_bottles
+    render json: { text: "the lyrics for '99 bottles of beer on the wall'" }
   end
 end
